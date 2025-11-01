@@ -18,8 +18,39 @@ b.	Add the ASCII value of the current character to the hash.
 
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+
+unsigned int simple_hash(const char *message)
+{
+    unsigned int hash = 0;
+    int i;
+    for (i = 0; i < strlen(message); i++) {
+        hash = (hash * 31) + message[i];
+    }
+    return hash;
+}
+
+int main()
+{
+    char message[256];
+    unsigned int hash_value;
+
+    printf("Enter the message to hash: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = '\0';
+
+    hash_value = simple_hash(message);
+    printf("Generated hash value: %u\n", hash_value);
+
+    return 0;
+}
+
+```
 
 ## OUTPUT:
+<img width="819" height="297" alt="image" src="https://github.com/user-attachments/assets/f7741a16-d80c-49d5-a61f-1be3d41b3e9b" />
 
 ## RESULT:
 
